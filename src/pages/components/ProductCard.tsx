@@ -11,6 +11,10 @@ type ProductCardProps = {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+    if (!product) {
+        return null;
+    }
+
     const [toastIsOpen, setToastIsOpen] = useState(false)
     const { id, name, imageUrl, price } = product
   
@@ -18,39 +22,38 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <>
             <Card>
                 <Link href={`/products/${id}`}>
-                                                                                {/* elementos height e width s]ao usados para saber quais são as proproções da imagem. São obrigatorio */}  
-                    <Image className="card-img-top" src={imageUrl} alt={product.name} width={600} height={500} style={{width: "100%", height: "auto"}} priority />
+                    <Image className="card-img-top" src={imageUrl} alt={name} width={600} height={500} style={{ width: "100%", height: "auto" }} priority />
                 </Link>
 
                 <CardBody>
                     <Link className="card-title text-decoration-none" href={`/products/${id}`}>
-                      <h5 style={{ cursor: 'pointer' }}>
-                        {name}
-                      </h5>
+                        <h5 style={{ cursor: 'pointer' }}>
+                            {name}
+                        </h5>
                     </Link>
 
                     <CardSubtitle className="mb-3 text-muted" tag="h6">
-                      R$ {price}
+                        R$ {price}
                     </CardSubtitle>
 
                     <Button
-                      color="dark"
-                      className="pb-2"
-                      block
-                      onClick={() => {
-                        setToastIsOpen(true)
-                        setTimeout(() => setToastIsOpen(false), 1000 * 3)
-                      }}
+                        color="dark"
+                        className="pb-2"
+                        block
+                        onClick={() => {
+                            setToastIsOpen(true)
+                            setTimeout(() => setToastIsOpen(false), 1000 * 3)
+                        }}
                     >
-                      Adicionar ao Carrinho
+                        Adicionar ao Carrinho
                     </Button>
                 
-                  </CardBody>
-                </Card>
-                
-            <SuccessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} /> {/* cada vez que clicar no botão de adicionar ao carrinho, vai abrir o Toast e depois fechar o toast */}
+                </CardBody>
+            </Card>
+            
+            <SuccessToast toastIsOpen={toastIsOpen} setToastIsOpen={setToastIsOpen} />
         </>
     )
-  }
-  
-  export default ProductCard
+}
+
+export default ProductCard

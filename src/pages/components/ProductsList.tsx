@@ -1,5 +1,3 @@
-// src/components/ProductsList.tsx
-
 import React from "react"
 import { Col, Row } from "reactstrap"
 import ProductCard from "./ProductCard"
@@ -10,6 +8,10 @@ type ProductListProps = {
 }
 
 const ProductsList: React.FC<ProductListProps> = ({ products }) => {
+    
+  if (!products) {
+    return null;
+  }
 
   return (
     <>
