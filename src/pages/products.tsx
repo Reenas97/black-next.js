@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import { Container } from "reactstrap";
 import ProductsList from "./components/ProductsList";
 import { ReactNode } from "react";
-import { ProductType, fetchProducts } from "./services/products";
+import { ProductType, fetchProducts } from "../services/products";
 
 export const getStaticProps: GetStaticProps = async () => {
     const products = await fetchProducts() //pega o fetchProducts do service
