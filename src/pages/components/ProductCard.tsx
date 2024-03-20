@@ -18,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <Card>
                 <Link href={`/products/${id}`}>
                                                                                 {/* elementos height e width s]ao usados para saber quais são as proproções da imagem. São obrigatorio */}  
-                    <Image className="card-img-top" src={imageUrl} alt={product.name} width={600} height={500} style={{width: "100%", height: "auto"}} priority />
+                    
                 </Link>
 
                 <CardBody>
