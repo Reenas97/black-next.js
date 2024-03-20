@@ -11,11 +11,12 @@ type ProductCardProps = {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+    const [toastIsOpen, setToastIsOpen] = useState(false)
+
     if (!product) {
         return null;
     }
-
-    const [toastIsOpen, setToastIsOpen] = useState(false)
+    
     const { id, name, imageUrl, price } = product
   
     return (
