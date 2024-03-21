@@ -1,4 +1,3 @@
-// src/components/ProductDetails.tsx
 
 import Image from "next/image";
 import React, { useState } from "react";
@@ -12,6 +11,10 @@ type ProductDetailsProps = {
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   const [toastIsOpen, setToastIsOpen] = useState(false)
+
+  if (!product || !product.imageUrl) {
+    return <p>Produto não encontrado ou imagem indisponível</p>;
+  }
 
   return (
     <Row>
