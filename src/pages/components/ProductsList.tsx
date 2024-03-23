@@ -8,14 +8,14 @@ type ProductListProps = {
 }
 
 const ProductsList: React.FC<ProductListProps> = ({ products }) => {
-    
+
   if (!products) {
     return null;
   }
 
   return (
     <>
-      <Row className="g-5">
+      <Row className="g-md-5">
         {products.map(product => (
           <Col md={6} lg={4} xl={3} key={product.id}>
             <ProductCard
